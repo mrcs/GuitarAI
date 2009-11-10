@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 //import org.jfugue.Pattern;
 //import org.jfugue.Player;
 
@@ -8,15 +10,25 @@ public class Teste {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//Player t = new Player();
-		//t.stop();
-		//t.play("Cmaj5q F#min2h Bbmin13^^^");
+		System.out.println("Digite o troco");
+		int troco = 950;
 		
-		//Player player = new Player();
-		//Pattern pattern = new Pattern("I[24] C D E F G A B");
-		//player.play(pattern);
+		System.out.println("A entrada eh "+troco);
 		
-		//t.play("T[90] I[25] Gmaj7w Gmajw");
+		
+		int i;
+		int[] vetor = {1,2,5,10,20,50,100};
+		
+		System.out.println("troco: ");
+		
+		for (int j = vetor.length - 1; j >= 0; j--) {
+			while ((troco >= vetor[j])) {
+				System.out.println(vetor[j]);
+				troco = troco - vetor[j];
+			}			
+		}
 	}
+	
+	//public void troco (int troco)
 
 }

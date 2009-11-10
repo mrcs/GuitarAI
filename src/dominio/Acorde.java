@@ -6,14 +6,16 @@ public class Acorde {
 	private boolean bemol;
 	private boolean setima;
 	private boolean menor;
+	private boolean maj;
 	private String diagrama;
 	
-	public Acorde(String nome, boolean sustenido, boolean bemol, boolean setima, boolean menor, String diagrama) {
+	public Acorde(String nome, boolean sustenido, boolean bemol, boolean setima, boolean menor, boolean maj, String diagrama) {
 		this.nome = nome;
 		this.sustenido = sustenido;
 		this.bemol = bemol;
 		this.setima = setima;
 		this.menor = menor;
+		this.maj = maj;
 		this.diagrama = diagrama;
 	}
 	
@@ -35,6 +37,10 @@ public class Acorde {
 
 	public String getDiagrama() {
 		return diagrama;
+	}
+
+	public boolean isMaj() {
+		return maj;
 	}
 
 }
