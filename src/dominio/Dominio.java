@@ -9,22 +9,12 @@ public class Dominio {
 	public static final int INTERMEDIARIO = 1;
 	public static final int AVANCADO = 2;
 	
+	public DominioBD bd;
+	
 	public Iterator<Questao> questoes() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-/*
- * Dominio inicialmente carregar atraves do txt 
- * 
- * Vai ter 5 matrizes de níveis
- * 
- * Há questoes e licoes aqui
- * 
- * Deve haver um método que retorna questões/aula
- * a partir de um nível e um assunto 
- * 
- */
-
 	public Iterator<Licao> licoes() {
 		// TODO Auto-generated method stub
 		return null;
@@ -47,5 +37,15 @@ public class Dominio {
 
 	public boolean checaResposta(Questao questao, String resposta) {
 		return questao.resposta(resposta);
+	}
+
+	public Iterator<Licao> licoes(int nivel, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Iterator<Licao> licoes(int nivel, Iterator<Erro> erros, int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

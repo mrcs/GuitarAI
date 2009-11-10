@@ -62,8 +62,14 @@ public class Tutor {
 			return null;	// yes, we can again.
 		
 		if (!licoes.hasNext()) {
-			//similar ao de cima
-			licoes = dominio.licoes();
+			int nivel = aluno.getNivel();
+			if (!(aluno.getErradas().isEmpty() && aluno.getCertas().isEmpty())) {
+				
+				Iterator<Erro> erros = dominio.erros(aluno.getErradas()); 
+				licoes = dominio.licoes(nivel, erros, 5);
+				
+			} else
+				licoes = dominio.licoes(nivel, 5);
 		}
 		
 		return licoes.next();
