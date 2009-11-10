@@ -17,6 +17,24 @@ public class Tutor {
  * a partir dessa informação ele fornece mais aulas
  * de um determinado assunto
  */
-
+	private boolean questao;
+	
+	private boolean licao;
+	
+	boolean temQuestao() {
+		return licao;
+	}
+	
+	public boolean temLicao() {
+		return questao;
+	}
+	
+	public Questao proximaQuestao() {
+		
+	}
+	
+	public Licao proximaLicao() {
+		
+	}
 	
 }
