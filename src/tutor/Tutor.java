@@ -6,32 +6,18 @@ import aluno.*;
 import dominio.*;
 
 public class Tutor {
-/*
- * O tutor tem o aluno e o dominio
- * 
- * a estratégia de ensino é a conexão entre
- * o aluno e o dominio
- * ela busca as questões em dominio a partir do
- * nível e dificuldade do aluno
- * 
- * o tutor também diz onde o aluno está errando mais 
- * e onde ele deve melhorar
- * 
- * a partir dessa informação ele fornece mais aulas
- * de um determinado assunto
- */
 	
-	// domínio
+	// dominio
 	private Dominio dominio;
 	// aluno
 	private Aluno aluno;
 	
-	// se há proxima questao
+	// se ha proxima questao
 	private boolean temQuestao;
-	// se há proxima licao
+	// se ha proxima licao
 	private boolean temLicao;
 	
-	// iterators das proximas lições e questões
+	// iterators das proximas licoes e questoes
 	private Iterator<Questao> questoes;
 	private Iterator<Licao> licoes;
 
@@ -44,7 +30,7 @@ public class Tutor {
 		this.temQuestao = false;
 	}
 	
-	boolean temQuestao() {
+	public boolean temQuestao() {
 		return temLicao;
 	}
 	
@@ -58,14 +44,15 @@ public class Tutor {
 			return null;	// yes, we can.
 		
 		if (!questoes.hasNext()) {
-			/*
-			 * nivel do aluno = aluno.nivel;
-			 * tipo de erros = aluno.tipodeerros
-			 * questoes = dominio.questoes(nivel aluno, tipo)
-			 */
-			questoes = dominio.questoes();
-		}
-		
+			int nivel = aluno.getNivel();
+			if (!(aluno.getErradas().isEmpty() && aluno.getCertas().isEmpty())) {
+				Iterator<Erro> erros = dominio.erros(aluno.getErradas()); 
+				questoes = dominio.questoes(nivel, erros, 5);
+				// cinco questoes com nivel e sobre os erros
+			} else
+				questoes = dominio.questoes(nivel, 5);
+				// cinco questoes com nivel 
+		}	
 		return questoes.next();
 	}
 	
@@ -82,4 +69,16 @@ public class Tutor {
 		return licoes.next();
 	}
 	
+	public boolean responde(Questao questao, String resposta) {
+		boolean acertou = dominio.checaResposta(questao, resposta);
+		
+		if (acertou)
+			aluno.acertou(questao);
+		else
+			aluno.errou(questao);
+		
+		return acertou;
+	}
+	
+	//public void mudaNivel()
 }
