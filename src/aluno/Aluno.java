@@ -1,5 +1,7 @@
 package aluno;
 
+import java.util.LinkedList;
+
 public class Aluno {
 	
 	/*
@@ -12,5 +14,14 @@ public class Aluno {
 	 * Além disso vai ter o seu nível e 
 	 * talvez o seu objetivo no sistema
 	 */
+	
+	// nível atual
+	private int nivel;
+	
+	// nível objetivo
+	private int objetivo;
+	
+	private LinkedList<Questao> erradas;
+	
 
 }

@@ -1,6 +1,15 @@
 package dominio;
 
+import java.util.Iterator;
+
+import tutor.Questao;
+
 public class Dominio {
+
+	public Iterator<Questao> questoes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 /*
  * Dominio inicialmente carregar atraves do txt 
  * 
@@ -12,4 +21,9 @@ public class Dominio {
  * a partir de um nível e um assunto 
  * 
  */
+
+	public Iterator<Licao> licoes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
