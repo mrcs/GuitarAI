@@ -10,29 +10,23 @@ public class Dominio {
 	public static final int AVANCADO = 2;
 	
 	public DominioBD bd;
-	
-	public Iterator<Questao> questoes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public Iterator<Licao> licoes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public Iterator<Erro> erros(LinkedList<Questao> erradas) {
-		// TODO Auto-generated method stub
-		return null;
+		// note que iterator eh desnecessario
+		LinkedList<Erro> lista = new LinkedList<Erro>();
+		lista.add(new Erro((Iterator<Questao>) erradas));
+		
+		// um dia pode ser; as you may know xp is ftf
+
+		return lista.iterator();	 
 	}
 
 	public Iterator<Questao> questoes(int nivel, Iterator<Erro> erros, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		return bd.questoes(nivel, erros, i); // i questoes desse nivel com esses erros (pode ser apenas um ou nehum)
 	}
 
 	public Iterator<Questao> questoes(int nivel, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		return bd.questoes(nivel, i); // i questoes desse nivel
 	}
 
 	public boolean checaResposta(Questao questao, String resposta) {
@@ -40,12 +34,11 @@ public class Dominio {
 	}
 
 	public Iterator<Licao> licoes(int nivel, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		return bd.licoes(nivel,i);	// i licoes desse nivel
 	}
 
 	public Iterator<Licao> licoes(int nivel, Iterator<Erro> erros, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		return bd.licoes(nivel,erros,i);	// i licoes desse nivel e que aborde esses erros
+											// erros pode ta vazio, isto eh, pode ser apenas desse nivel
 	}
 }

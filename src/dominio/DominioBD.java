@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Iterator;
 
 public class DominioBD {
 
@@ -27,6 +28,26 @@ public class DominioBD {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://" + ip	+ "/" + bd + "?user=" + user + "&password=" + senha);
 		Statement stm = conn.createStatement();
 		return stm.execute(query);
+	}
+
+	public Iterator<Questao> questoes(int nivel, Iterator<Erro> erros, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Iterator<Questao> questoes(int nivel, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Iterator<Licao> licoes(int nivel, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Iterator<Licao> licoes(int nivel, Iterator<Erro> erros, int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
