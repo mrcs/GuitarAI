@@ -22,15 +22,15 @@ public class Erro {
 		
 		while (erradas.hasNext()) {
 			Questao questao = erradas.next();
-			if (questao.acorde.isBemol())
+			if (questao.getAcorde().isBemol())
 				erro[DIFICULDADE_COM_BEMOL]++;
-			if (questao.acorde.isSetima())
+			if (questao.getAcorde().isSetima())
 				erro[DIFICULDADE_COM_SETIMAS]++;
-			if (questao.acorde.isSustenido())
+			if (questao.getAcorde().isSustenido())
 				erro[DIFICULDADE_COM_SUSTENIDO]++;
-			if (questao.acorde.isMenor())
+			if (questao.getAcorde().isMenor())
 				erro[DIFICULDADE_COM_MENOR]++;
-			if (questao.acorde.isMaj())
+			if (questao.getAcorde().isMaj())
 				erro[DIFICULDADE_COM_MAJ]++;
 		}
 	}

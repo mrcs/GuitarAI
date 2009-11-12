@@ -12,6 +12,9 @@ public class Aluno {
 	
 	// nível objetivo
 	private int objetivo;
+
+	private LinkedList<Questao> erradas;
+	private LinkedList<Questao> certas;
 	
 	public Aluno(int nivel, int objetivo) {
 		this.nivel = nivel;
@@ -22,9 +25,6 @@ public class Aluno {
 		this.nivel = Dominio.INICIANTE;
 		this.objetivo = Dominio.AVANCADO;
 	}
-	
-	private LinkedList<Questao> erradas;
-	private LinkedList<Questao> certas;
 	
 	public void acertou(Questao questao) {
 		erradas.remove(questao);

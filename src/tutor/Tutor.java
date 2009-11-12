@@ -85,6 +85,16 @@ public class Tutor {
 		
 		return acertou;
 	}
+
+	public String getErros() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getMsg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	//public void mudaNivel()
 }
