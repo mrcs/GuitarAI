@@ -19,7 +19,6 @@ import aluno.Aluno;
 
 import dominio.Acorde;
 import dominio.Dominio;
-import dominio.Licao;
 import dominio.Questao;
 
 import tutor.Tutor;
@@ -130,7 +129,7 @@ public class Gui extends JFrame {
 
 	private void next(){
 		if (tutor.temLicao()){
-			Licao licao = tutor.proximaLicao();
+			Questao licao = tutor.proximaLicao();
 			acordeAtual = licao.getAcorde();
 			String nome = acordeAtual.getNome();
 			mudarDiagrama(nome);

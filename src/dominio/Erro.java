@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Erro {
 	
@@ -15,11 +16,12 @@ public class Erro {
 	private final static int DIFICULDADE_COM_MENOR		= 6;
 	
 	private int erro[];
+	private int total;
 	
 	public Erro(Iterator<Questao> erradas) {
 		
 		erro = new int[7];
-		
+		total = 0;
 		while (erradas.hasNext()) {
 			Questao questao = erradas.next();
 			if (questao.getAcorde().isBemol())
@@ -32,6 +34,32 @@ public class Erro {
 				erro[DIFICULDADE_COM_MENOR]++;
 			if (questao.getAcorde().isMaj())
 				erro[DIFICULDADE_COM_MAJ]++;
+			total++;
 		}
 	}
+	
+
+	public int[] getErros(int i) {
+		int[] retErros = new int[i];
+		
+		int[] erro = this.erro.clone();
+		
+		for (int k = 0; k < i; k++) {
+			int j = 0;
+			int maior = 0;
+			for (j = 0; j < erro.length; j++) 
+				if (erro[j] > erro[maior]) 
+					maior = j;
+			retErros[k] = maior;
+			erro[maior] = 0;
+		}
+
+		return retErros;
+	}
+
+
+	public float getProbabilidade(int i) {
+		return (erro[i]/total);
+	}
+
 }

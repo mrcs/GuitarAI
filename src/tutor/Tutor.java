@@ -19,7 +19,7 @@ public class Tutor {
 	
 	// iterators das proximas licoes e questoes
 	private Iterator<Questao> questoes;
-	private Iterator<Licao> licoes;
+	private Iterator<Questao> licoes;
 
 	public Tutor(Aluno aluno, Dominio dominio) {
 		this.aluno = aluno;
@@ -46,7 +46,7 @@ public class Tutor {
 		if (!questoes.hasNext()) {
 			int nivel = aluno.getNivel();
 			if (!(aluno.getErradas().isEmpty() && aluno.getCertas().isEmpty())) {
-				Iterator<Erro> erros = dominio.erros(aluno.getErradas()); 
+				Erro erros = dominio.erros(aluno.getErradas()); 
 				questoes = dominio.questoes(nivel, erros, 5);
 				// cinco questoes com nivel e sobre os erros
 			} else
@@ -56,7 +56,7 @@ public class Tutor {
 		return questoes.next();
 	}
 	
-	public Licao proximaLicao() {
+	public Questao proximaLicao() {
 		
 		if (!temLicao)
 			return null;	// yes, we can again.
@@ -65,11 +65,11 @@ public class Tutor {
 			int nivel = aluno.getNivel();
 			if (!(aluno.getErradas().isEmpty() && aluno.getCertas().isEmpty())) {
 				
-				Iterator<Erro> erros = dominio.erros(aluno.getErradas()); 
-				licoes = dominio.licoes(nivel, erros, 5);
+				Erro erros = dominio.erros(aluno.getErradas()); 
+				licoes = dominio.questoes(nivel, erros, 5);
 				
 			} else
-				licoes = dominio.licoes(nivel, 5);
+				licoes = dominio.questoes(nivel, 5);
 		}
 		
 		return licoes.next();
@@ -96,5 +96,6 @@ public class Tutor {
 		return null;
 	}
 	
+
 	//public void mudaNivel()
 }
