@@ -22,7 +22,7 @@ public class Dominio {
 	}
 
 	public Iterator<Questao> questoes(int nivel, Iterator<Erro> erros, int i) {
-		return bd.questoes(nivel, erros, i); 	// i questoes desse nivel com esses erros (pode ser apenas um ou nehum)
+		return bd.questoes(nivel, i, i); 	// i questoes desse nivel com esses erros (pode ser apenas um ou nehum)
 	}
 
 	public Iterator<Questao> questoes(int nivel, int i) {
@@ -38,7 +38,7 @@ public class Dominio {
 	}
 
 	public Iterator<Licao> licoes(int nivel, Iterator<Erro> erros, int i) {
-		return bd.licoes(nivel,erros,i);		// i licoes desse nivel e que aborde esses erros
+		return bd.licoes(nivel,i,i);		// i licoes desse nivel e que aborde esses erros
 												// erros pode ta vazio, isto eh, pode ser apenas desse nivel
 	}
 }

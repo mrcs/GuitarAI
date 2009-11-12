@@ -30,9 +30,14 @@ public class DominioBD {
 		Statement stm = conn.createStatement();
 		return stm.execute(query);
 	}
-
-	public Iterator<Questao> questoes(int nivel, Iterator<Erro> erros, int i) {
-		// TODO Auto-generated method stub
+	private final static int BASICA 	= 0; 
+	private final static int SETIMA		= 1;
+	private final static int SUSTENIDO	= 2;
+	private final static int BEMOL		= 3;
+	private final static int MAJ		= 5;
+	private final static int MENOR		= 6;
+	
+	public Iterator<Questao> questoes(int nivel, int tipo, int i) {
 		return null;
 	}
 
@@ -74,7 +79,7 @@ public class DominioBD {
 		return null;
 	}
 
-	public Iterator<Licao> licoes(int nivel, Iterator<Erro> erros, int i) {
+	public Iterator<Licao> licoes(int nivel, int tipo, int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
